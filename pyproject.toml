@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "library-app"
+version = "0.1.0"
+description = "library book management web-application"
+authors = ["KarinA <abdullaeva.karina.r@gmail.com>"]
+readme = "README.md"
+repository = "https://github.com/KarinaAbd/library_app"
+packages = [{include = "library_app"}]
+
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^4.2.3"
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^6.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
