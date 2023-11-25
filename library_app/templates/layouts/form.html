@@ -1,0 +1,12 @@
+{% extends 'layouts/base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+
+<form method="post">
+  {% csrf_token %}
+  {% bootstrap_form form %}
+  {% bootstrap_button button_text button_type="submit" button_class="btn-warning" %}
+</form>
+{% endblock %}

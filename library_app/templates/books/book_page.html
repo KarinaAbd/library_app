@@ -1,0 +1,33 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<h1 class="my-4">Детали о книге</h1>
+<div class="card">
+    <h2 class="card-header bg-warning" style="--bs-bg-opacity: .5;">{{ book.title }}</h2>
+    <div class="card-body">
+        <hr>
+        <table class="table my-4">
+            <tr>
+                <td>Автор</td>
+                <td>{{ book.author }}</td>
+            </tr>
+            <tr>
+                <td>Год издания</td>
+                <td>{{ book.year }}</td>
+            </tr>
+            <tr>
+                <td>ISBN</td>
+                <td>{{ book.isbn }}</td>
+            </tr>
+            <tr>
+                <td>Дата добавления</td>
+                <td>{{ book.created_at|date:"d.m.Y H:i" }}</td>
+            </tr>
+        </table>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <a class="btn btn-warning btn-lg text-dark" href="{% url 'book_update' book.id %}">Внести изменения</a>
+            <a class="btn btn-warning btn-lg text-dark" href="{% url 'book_delete' book.id %}">Удалить книгу</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

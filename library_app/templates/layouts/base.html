@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<head>
+  {% load django_bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Hexlet Task Manager</title>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+  <header>
+    <nav class="navbar navbar-light px-4 d-flex bd-highlight bg-warning text-dark">
+      <div class="p-2 flex-grow-1">
+        <a class="navbar-brand" href="{% url 'index' %}">Маленькая баблиотека питониста</a>
+      </div>
+      <div class="p-2">
+        <a class="nav-link" href="{% url 'book_list' %}">Наши книги</a>
+      </div>
+    </nav>
+  </header>
+
+  {% bootstrap_messages %}
+
+  <main class="container wrapper flex-grow-1 my-4">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    <div class="container my-5 pt-4 border-top d-flex justify-content-center">
+      <a class="text-dark" target="_blank" href="https://github.com/KarinaAbd/library_app">Исходный код</a>
+    </div>
+  </footer>
+</body>
+
+</html>
