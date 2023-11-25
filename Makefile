@@ -34,6 +34,9 @@ test-coverage:
 start:
 	$(MANAGE) runserver
 
+deploy:
+	$(RUN) gunicorn library_app.wsgi
+
 shell:
 	@$(MANAGE) shell
 
