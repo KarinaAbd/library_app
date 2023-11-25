@@ -1,0 +1,8 @@
+{
+    "test_book": {
+        "title": "Clean Code",
+        "author": "Robert C. Martin",
+        "year": 2008,
+        "isbn": "9780136083238"
+    }
+}
