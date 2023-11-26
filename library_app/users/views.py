@@ -26,6 +26,10 @@ class UserCreateView(SuccessMessageMixin,
     success_url = reverse_lazy('login')
     success_message = 'Вы зарегестрированы!'
 
+    def form_valid(self, form):
+        form.send_email()
+        return super().form_valid(form)
+
 
 class UserUpdateView(ProjectLoginRequiredMixin,
                      HasPermissionUserChangeMixin,

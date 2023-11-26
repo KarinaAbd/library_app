@@ -40,6 +40,9 @@ deploy:
 shell:
 	@$(MANAGE) shell
 
+celery:
+	python3 -m celery -A library_app worker -l info
+
 clean:
 	rm .coverage
 	rm -rf *lcov

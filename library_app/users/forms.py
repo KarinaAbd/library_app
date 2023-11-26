@@ -1,11 +1,9 @@
-from time import sleep
-
 from django.contrib.auth import password_validation
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django.forms import CharField, PasswordInput
-from django.core.mail import send_mail
 
 from library_app.users.models import User
+from library_app.users.tasks import send_welcome_email_task
 
 
 class UserForm(UserCreationForm):
@@ -22,15 +20,10 @@ class UserForm(UserCreationForm):
         )
 
     def send_email(self):
-        """Sends an email when the user creation form has been submitted."""
-        sleep(20)  # Simulate expensive operation that freezes Django
-        send_mail(
-            "Привет!",
-            "Рады видеть вас в нашей Маленькой библиотеке питониста! Заходите почаще!",
-            "support@example.com",
-            [self.cleaned_data["email"]],
-            fail_silently=False,
-        )
+        send_welcome_email_task.delay(self.cleaned_data["email"])
+        # Вызов .delay() — это самый быстрый способ отправить сообщение о задаче в Celery. 
+        # Этот метод является ярлыком для более мощного метода .apply_async() 
+
 
 class UserUpdateForm(UserChangeForm):
     password = None
