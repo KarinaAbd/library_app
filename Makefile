@@ -43,6 +43,9 @@ shell:
 celery:
 	python3 -m celery -A library_app worker -l info
 
+docker:
+	docker compose up
+
 clean:
 	rm .coverage
 	rm -rf *lcov
