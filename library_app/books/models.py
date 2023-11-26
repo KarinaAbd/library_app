@@ -6,4 +6,5 @@ class Book(models.Model):
     author = models.CharField(max_length=200)
     year = models.IntegerField()
     isbn = models.CharField(max_length=13, unique=True)
+    url = models.URLField(default="")
     created_at = models.DateTimeField(auto_now_add=True)

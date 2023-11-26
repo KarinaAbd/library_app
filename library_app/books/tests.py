@@ -38,6 +38,7 @@ class BookTestCase(TestCase):
         self.assertEqual(book.author, self.book_data['author'])
         self.assertEqual(book.year, self.book_data['year'])
         self.assertEqual(book.isbn, self.book_data['isbn'])
+        self.assertEqual(book.url, self.book_data['url'])
         messages_container = [
             str(message) for message in CookieStorage(response)._decode(
                 response.cookies['messages'].value
@@ -86,6 +87,7 @@ class BookTestCase(TestCase):
                 'author': self.book_data['author'],
                 'year': self.book_data['year'],
                 'isbn': self.book_data['isbn'],
+                'url': self.book_data['url']
             }
         )
         self.assertEqual(response.status_code, 302)
