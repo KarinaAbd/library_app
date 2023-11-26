@@ -1,6 +1,6 @@
 # Library_app
 
-[![CI Tests](https://github.com/KarinaAbd/library_app/blob/main/.github/workflows/priject_ci.yml/badge.svg)](https://github.com/KarinaAbd/library_app/blob/main/.github/workflows/priject_ci.yml)
+[![CI Tests](https://github.com/KarinaAbd/library_app/actions/workflows/priject_ci.yml/badge.svg)](https://github.com/KarinaAbd/library_app/actions/workflows/priject_ci.yml)
 
 ## About
 
