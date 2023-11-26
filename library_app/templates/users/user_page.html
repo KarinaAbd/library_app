@@ -1,0 +1,29 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<h1 class="my-4">Страница пользователя</h1>
+<div class="card">
+    <h2 class="card-header bg-warning" style="--bs-bg-opacity: .5;">{{ name }}</h2>
+    <div class="card-body">
+        <hr>
+        <table class="table my-4">
+            <tr>
+                <td>Имя</td>
+                <td>{{ user.first_name }} {{ user.last_name }}</td>
+            </tr>
+            <tr>
+                <td>E-mail</td>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <td>Дата регистрации</td>
+                <td>{{ user.date_joined|date:"d.m.Y H:i" }}</td>
+            </tr>
+        </table>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <a class="btn btn-warning btn-lg text-dark" href="{% url 'user_update' user.id %}">Внести изменения</a>
+            <a class="btn btn-warning btn-lg text-dark" href="{% url 'user_delete' user.id %}">Удалиться</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

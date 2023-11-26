@@ -1,4 +1,12 @@
 {
+    "test_user": {
+        "first_name": "Jemaine",
+        "last_name": "Clement",
+        "username": "Vladislav",
+        "email": "drakula@vampire.nz",
+        "password1": "torture100",
+        "password2": "torture100"
+    },
     "test_book": {
         "title": "Clean Code",
         "author": "Robert C. Martin",

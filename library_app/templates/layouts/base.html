@@ -19,6 +19,26 @@
       <div class="p-2">
         <a class="nav-link" href="{% url 'book_list' %}">Наши книги</a>
       </div>
+      <div class="p-2">
+        <a class="nav-link" href="{% url 'user_list' %}">Пользователи</a>
+      </div>
+      {% if user.is_authenticated %}
+      <div class="p-2">
+        <form action="{% url 'logout' %}" method="post">
+          {% csrf_token %}
+          <input class="btn nav-link" type="submit" value="Выйти">
+        </form>
+      </div>
+      {% else %}
+      <div class="p-2">
+        <a class="nav-link" href="{% url 'login' %}">Авторизоваться</a>
+      </div>
+      <div class="p-2">
+        <a class="nav-link" href="{% url 'user_create' %}">
+          Зарегестрироваться
+        </a>
+      </div>
+      {% endif %}
     </nav>
   </header>
 

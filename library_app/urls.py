@@ -21,5 +21,8 @@ from library_app import views
 urlpatterns = [
     path('', views.IndexView.as_view(), name="index"),
     path('books/', include('library_app.books.urls')),
+    path('users/', include('library_app.users.urls')),
+    path('login/', views.UserLogInView.as_view(), name='login'),
+    path('logout/', views.UserLogOutView.as_view(), name='logout'),
     path('admin/', admin.site.urls),
 ]

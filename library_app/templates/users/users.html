@@ -1,0 +1,36 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<h1 class="my-4">Зарегестрированные пользователи</h1>
+<table class="table table-hover table-borderless  my-4">
+    <thead class="thead-dark bg-warning" style="--bs-bg-opacity: .5;">
+        <tr>
+            <th>ID</th>
+            <th>Ник</th>
+            <th>Дата регистрации</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% if users %}
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>
+                <a href="{% url 'user_page' user.id %}">
+                    {{ user.username }}
+                </a>
+            </td>
+            <td>{{ user.date_joined|date:"d.m.Y H:i" }}</td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="3">
+                Пока никто не зарегестрировался
+            </td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}

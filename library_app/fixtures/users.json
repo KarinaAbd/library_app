@@ -1,0 +1,26 @@
+[
+    {
+        "model": "users.user",
+        "pk": 1,
+        "fields": {
+            "first_name": "Taika",
+            "last_name": "Waititi",
+            "username": "Viago",
+            "email": "taika@shadows.com",
+            "password": "123qwe!@#",
+            "date_joined": "2023-01-19T16:20:45.789Z"
+        }
+    },
+    {
+        "model": "users.user",
+        "pk": 2,
+        "fields": {
+            "first_name": "Peter",
+            "last_name": "Kwill",
+            "username": "StarLord",
+            "email": "starlord99@racoon.com",
+            "password": "qwerty789",
+            "date_joined": "2023-01-20T16:20:45.789Z"
+        }
+    }
+]

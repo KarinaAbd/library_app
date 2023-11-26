@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'library_app',
     'library_app.books',
+    'library_app.users'
 ]
 
 MIDDLEWARE = [
@@ -98,11 +99,6 @@ DATABASES = {
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME':
-        'django.contrib.auth.password_validation.\
-            UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME':
         'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
@@ -139,3 +135,5 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 FIXTURE_DIRS = ['library_app/fixtures'] 
+
+AUTH_USER_MODEL = 'users.User'

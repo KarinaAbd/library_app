@@ -57,7 +57,7 @@ class BookDeleteView(SuccessMessageMixin,
     def get_context_data(self, **kwargs):
         book = self.get_object()
         context = super().get_context_data(**kwargs)
-        context['book_title'] = book.title
+        context['name'] = book.title
         return context
 
 
