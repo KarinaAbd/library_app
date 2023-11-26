@@ -100,7 +100,8 @@
 #         response = self.client.get(reverse('user_delete',
 #                                            kwargs={'pk': user.id}))
 #         self.assertEqual(response.status_code, 200)
-#         self.assertTemplateUsed(response, template_name='layouts/delete.html')
+#         self.assertTemplateUsed(response,
+#                                 template_name='layouts/delete.html')
 
 #         response = self.client.post(reverse('user_delete',
 #                                             kwargs={'pk': user.id}))
