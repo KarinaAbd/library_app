@@ -1,0 +1,30 @@
+name: Python CI
+
+on:
+  - push
+  - pull_request
+
+permissions: read-all
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: library_app_env
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install poetry
+        run: pip install poetry
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          cache: poetry
+      - name: Install dependencies
+        run: make install
+      - name: Linter check
+        run: make lint
+      - name: Run tests
+        env:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        run: make test
