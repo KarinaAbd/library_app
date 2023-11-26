@@ -19,10 +19,12 @@
                 <td>ISBN</td>
                 <td>{{ book.isbn }}</td>
             </tr>
-            <tr>
-                <td>Издательство</td>
-                <td><a href="book.url">Ссылка на издательство</a></td>
-            </tr>
+            {% if book.url %}
+                <tr>
+                    <td>Издательство</td>
+                    <td><a href="{{ book.url }}">Ссылка на издательство</a></td>
+                </tr>
+            {% endif %}
             <tr>
                 <td>Дата добавления</td>
                 <td>{{ book.created_at|date:"d.m.Y H:i" }}</td>
