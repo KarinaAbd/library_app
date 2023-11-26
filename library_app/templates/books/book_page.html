@@ -20,6 +20,10 @@
                 <td>{{ book.isbn }}</td>
             </tr>
             <tr>
+                <td>Издательство</td>
+                <td><a href="{{ book.url }}">Ссылка на издательство</a></td>
+            </tr>
+            <tr>
                 <td>Дата добавления</td>
                 <td>{{ book.created_at|date:"d.m.Y H:i" }}</td>
             </tr>
