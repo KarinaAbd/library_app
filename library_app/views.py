@@ -1,7 +1,6 @@
 from django.contrib.auth.views import LoginView, LogoutView
-from django.urls import reverse_lazy
-from django.utils.translation import gettext_lazy as _
 from django.views.generic.base import TemplateView
+from django.urls import reverse_lazy
 
 from library_app.mixins import ProjectRedirectURLMixin
 

@@ -134,11 +134,11 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-FIXTURE_DIRS = ['library_app/fixtures'] 
+FIXTURE_DIRS = ['library_app/fixtures']
 
 AUTH_USER_MODEL = 'users.User'
 
-# Instead of sending out real emails the console backend just writes the emails 
+# Instead of sending out real emails the console backend just writes the emails
 # that would be sent to the standard output.
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 

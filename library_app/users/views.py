@@ -2,7 +2,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views import generic
 
-from library_app.mixins import ProjectLoginRequiredMixin, HasPermissionUserChangeMixin
+from library_app import mixins
 from library_app.users.forms import UserForm, UserUpdateForm
 from library_app.users.models import User
 
@@ -31,8 +31,8 @@ class UserCreateView(SuccessMessageMixin,
         return super().form_valid(form)
 
 
-class UserUpdateView(ProjectLoginRequiredMixin,
-                     HasPermissionUserChangeMixin,
+class UserUpdateView(mixins.ProjectLoginRequiredMixin,
+                     mixins.HasPermissionUserChangeMixin,
                      SuccessMessageMixin,
                      generic.UpdateView):
     model = User
@@ -47,8 +47,9 @@ class UserUpdateView(ProjectLoginRequiredMixin,
     denied_url = reverse_lazy('user_list')
     permission_denied_message = 'Нельзя изменять данные других пользователей'
 
-class UserDeleteView(ProjectLoginRequiredMixin,
-                     HasPermissionUserChangeMixin,
+
+class UserDeleteView(mixins.ProjectLoginRequiredMixin,
+                     mixins.HasPermissionUserChangeMixin,
                      SuccessMessageMixin,
                      generic.DeleteView):
     model = User

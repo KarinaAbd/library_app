@@ -1,12 +1,10 @@
 import json
 
 from django.test import Client, TestCase
-from django.urls import reverse
-from django.utils.translation import gettext_lazy as _
 from django.contrib.messages.storage.cookie import CookieStorage
+from django.urls import reverse
 
 from library_app.users.models import User
-
 
 
 def get_fixture_content(file_path):

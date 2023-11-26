@@ -61,7 +61,7 @@ class BookTestCase(TestCase):
         book = Book.objects.last()
 
         response = self.client.get(reverse_lazy('book_page',
-                                           kwargs={'pk': book.id}))
+                                   kwargs={'pk': book.id}))
         self.assertEqual(response.status_code, 200)
 
         self.assertContains(response, self.book_data['title'])
@@ -75,7 +75,7 @@ class BookTestCase(TestCase):
         book = Book.objects.last()
 
         response = self.client.get(reverse_lazy('book_update',
-                                           kwargs={'pk': book.id}))
+                                   kwargs={'pk': book.id}))
         self.assertEqual(response.status_code, 200)
 
         response = self.client.post(
@@ -109,7 +109,7 @@ class BookTestCase(TestCase):
         book = Book.objects.last()
 
         response = self.client.get(reverse_lazy('book_delete',
-                                           kwargs={'pk': book.id}))
+                                   kwargs={'pk': book.id}))
         self.assertEqual(response.status_code, 200)
 
         response = self.client.post(
