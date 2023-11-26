@@ -1,6 +1,9 @@
+from time import sleep
+
 from django.contrib.auth import password_validation
-from django.contrib.auth.forms import UserChangeForm, UserCreationForm, UsernameField
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django.forms import CharField, PasswordInput
+from django.core.mail import send_mail
 
 from library_app.users.models import User
 
@@ -18,6 +21,16 @@ class UserForm(UserCreationForm):
             'first_name', 'last_name', 'username', 'email', 'password1', 'password2'
         )
 
+    def send_email(self):
+        """Sends an email when the user creation form has been submitted."""
+        sleep(20)  # Simulate expensive operation that freezes Django
+        send_mail(
+            "Привет!",
+            "Рады видеть вас в нашей Маленькой библиотеке питониста! Заходите почаще!",
+            "support@example.com",
+            [self.cleaned_data["email"]],
+            fail_silently=False,
+        )
 
 class UserUpdateForm(UserChangeForm):
     password = None
